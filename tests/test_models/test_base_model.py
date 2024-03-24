@@ -7,30 +7,29 @@ from models.base_model import BaseModel
 import datetime
 
 class TestBaseModel(unittest.TestCase):
+    def setUp(self):
+        self.my_model = BaseModel()
+    def tearDown(self):
+        storage.delete(self.my_model)
+
     def test_attributes(self):
-        my_model = BaseModel()
-        self.assertTrue(hasattr(my_model, 'id'))
-        self.assertTrue(hasattr(my_model, 'created_at'))
-        self.assertTrue(hasattr(my_model, 'updated_at'))
+        self.assertTrue(hasattr(self.my_model, 'id'))
+        self.assertTrue(hasattr(self.my_model, 'created_at'))
+        self.assertTrue(hasattr(self.my_model, 'updated_at'))
 
     def test_str_method(self):
-        my_model = BaseModel()
-        my_model.name = "My First Model"
-        my_model.my_number = 89
-        expected_output = f"[BaseModel] ({my_model.id}) {my_model.__dict__}"
-        self.assertEqual(str(my_model), expected_output)
+        expected_output = f"[BaseModel] ({self.my_model.id}) {self.my_model.__dict__}"
+        self.assertEqual(str(self.my_model), expected_output)
 
     def test_save_method(self):
-        my_model = BaseModel()
-        initial_updated_at = my_model.updated_at
-        my_model.save()
-        self.assertNotEqual(initial_updated_at, my_model.updated_at)
+        initial_updated_at = self.my_model.updated_at
+        self.my_model.save()
+        self.assertNotEqual(initial_updated_at, self.my_model.updated_at)
 
     def test_to_dict_method(self):
-        my_model = BaseModel()
-        my_model.name = "My First Model"
-        my_model.my_number = 89
-        my_model_json = my_model.to_dict()
+        self.my_model.name = "My First Model"
+        self.my_model.my_number = 89
+        my_model_json = self.my_model.to_dict()
         self.assertEqual(my_model_json['name'], "My First Model")
         self.assertEqual(my_model_json['my_number'], 89)
         self.assertEqual(my_model_json['__class__'], 'BaseModel')
@@ -38,11 +37,18 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(my_model_json['updated_at'], str)
 
     def test_to_dict_method_format(self):
-        my_model = BaseModel()
-        my_model_json = my_model.to_dict()
-        date_format = "%Y-%m-%dT%H:%M:%S.%f"
-        self.assertEqual(my_model.created_at.isoformat(), my_model_json['created_at'])
-        self.assertEqual(my_model.updated_at.isoformat(), my_model_json['updated_at'])
+        my_model_json = self.my_model.to_dict()
+        self.assertEqual(self.my_model.created_at.isoformat(), my_model_json['created_at'])
+        self.assertEqual(self.my_model.updated_at.isoformat(), my_model_json['updated_at'])
+
+    def test_new_method(self):
+        key = "{}.{}".format(self.my_model.__class__.__name__, self.my_model.id)
+        self.assertIn(key, storage.all())
+    def test_reload_method(self):
+        self.my_model.save()
+        storage.reload()
+        key = "{}.{}".format(self.my_model.__class__.__name__, self.my_model.id)
+        self.assertIn(key, storage.all())
 
 if __name__ == '__main__':
     unittest.main()
