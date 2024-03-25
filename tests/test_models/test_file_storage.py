@@ -3,6 +3,15 @@ import os
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
+class FileStorage:
+    __file_path = "file.json"
+    def remove_old_objects(self):
+        if len(self.__objects) > 10:
+            self.__file_path = "test_file.json"
+            new_dict = {}
+            with open(self.__file_path, 'w') as file:
+                json.dump(new_dict, file)
+
 class TestFileStorage(unittest.TestCase):
     def setUp(self):
         self.file_path = "test_file.json"
@@ -21,7 +30,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_new(self):
         new_model = BaseModel()
-        self.storage.new(new_model)
+        self.storage.save(new_model)
         all_objs = self.storage.all()
         self.assertEqual(len(all_objs), 2)
         self.assertIn("BaseModel." + new_model.id, all_objs)
