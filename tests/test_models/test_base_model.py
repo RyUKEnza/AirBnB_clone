@@ -4,6 +4,7 @@ import os
 import json
 import unittest
 from models.base_model import BaseModel
+from models import storage
 import datetime
 
 class TestBaseModel(unittest.TestCase):
