@@ -45,11 +45,16 @@ class TestBaseModel(unittest.TestCase):
     def test_new_method(self):
         key = "{}.{}".format(self.my_model.__class__.__name__, self.my_model.id)
         self.assertIn(key, storage.all())
+
     def test_reload_method(self):
         self.my_model.save()
         storage.reload()
         key = "{}.{}".format(self.my_model.__class__.__name__, self.my_model.id)
         self.assertIn(key, storage.all())
+    def delet(self, obj):
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        if key in self.__objects:
+            del self.__objects[key]
 
 if __name__ == '__main__':
     unittest.main()
