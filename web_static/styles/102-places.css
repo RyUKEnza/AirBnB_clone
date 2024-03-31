@@ -1,0 +1,10 @@
+.filters button {
+	min-width: 100px;
+}
+@media screen and (max-width: 768px) {
+    .filters button {
+	    width: 100%;
+        margin-top: 10px;
+    }
+}
+
