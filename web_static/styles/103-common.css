@@ -1,0 +1,7 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+button:focus {
+    outline: 2px solid blue;
+}
