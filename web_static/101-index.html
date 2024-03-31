@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header, Footer, Filters, and Results</title>
+    <link rel="stylesheet" href="styles/4-common.css">
+    <link rel="stylesheet" href="styles/3-header.css">
+    <link rel="stylesheet" href="styles/3-footer.css">
+    <link rel="stylesheet" href="styles/6-filters.css">
+    <link rel="stylesheet" href="styles/101-places.css">
+    <link rel="shortcut icon" href="images/icon.ico" >
+</head>
+
+<body>
+    <header>
+        <div class="logo"></div>
+    </header>
+
+    <div class="container">
+        <section class="filters">
+            <div class="locations">
+                <h3>Locations</h3>
+                <ul class="popover">
+                    <li>
+                        <h2>State</h2>
+                        <ul>
+                            <li>City 1</li>
+                            <li>City 2</li>
+                            <li>City 3</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="amenities">
+                <h3>Amenities</h3>
+                <ul class="popover">
+                    <li>Fake amenity 1</li>
+                    <li>Fake amenity 2</li>
+                    <li>Fake amenity 3</li>
+                </ul>
+            </div>
+            <button>Search</button>
+        </section>
+
+        <section class="places">
+            <h1>Places</h1>
+            <article>
+                <h2>Place 1</h2>
+                <div class="price_by_night">$100</div>
+                <div class="information">
+                    <div class="max_guest">Guests: 4</div>
+                    <div class="number_rooms">Bedrooms: 2</div>
+                    <div class="number_bathrooms">Bathrooms: 1</div>
+                </div>
+                <div class="user"><strong>Owner:</strong> Fake Owner</div>
+                <div class="description">Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <div class="amenities">
+                    <h2>Amenities</h2>
+                    <ul>
+                        <li>Pet friendly</li>
+                        <li>TV</li>
+                        <li>Wifi</li>
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h2>Reviews</h2>
+                    <ul>
+                        <li>
+                            <h3>From Bob Dylan the 27th January 2017</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            <article>
+                <h2>Place 2</h2>
+                <div class="price_by_night">$150</div>
+                <div class="information">
+                    <div class="max_guest">Guests: 6</div>
+                    <div class="number_rooms">Bedrooms: 3</div>
+                    <div class="number_bathrooms">Bathrooms: 2</div>
+                </div>
+                <div class="user"><strong>Owner:</strong> Another Fake Owner</div>
+                <div class="description">Description: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                <div class="amenities">
+                    <h2>Amenities</h2>
+                    <ul>
+                        <li>Pet friendly</li>
+                        <li>TV</li>
+                        <li>Wifi</li>
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h2>Reviews</h2>
+                    <ul>
+                        <li>
+                            <h3>From John Doe the 15th March 2018</h3>
+                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <footer>
+        <h2>Best School center</h2>
+    </footer>
+    <script>
+	    var logos = document.querySelectorAll('.logo');
+        logos.forEach(function (logo) {
+		logo.style.backgroundImage = 'url("images/logo.png")';
+        });
+    </script>
+</body>
+
+</html>

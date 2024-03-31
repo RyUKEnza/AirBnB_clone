@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header, Footer, Filters, and Results</title>
+    <link rel="stylesheet" href="styles/103-common.css">
+    <link rel="stylesheet" href="styles/103-header.css">
+    <link rel="stylesheet" href="styles/103-footer.css">
+    <link rel="stylesheet" href="styles/103-filters.css">
+    <link rel="stylesheet" href="styles/103-places.css">
+</head>
+
+<body>
+    <header role="banner">
+        <div class="logo" alt="Airbnb Logo"></div>
+    </header>
+
+    <nav role="navigation">
+        <div class="container">
+            <section class="filters">
+                <div class="locations">
+                    <h3>Locations</h3>
+                    <ul class="popover">
+                        <li>
+                            <h2>State</h2>
+                            <ul>
+                                <li>City 1</li>
+                                <li>City 2</li>
+                                <li>City 3</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="amenities">
+                    <h3>Amenities</h3>
+                    <ul class="popover">
+                        <li>Fake amenity 1</li>
+                        <li>Fake amenity 2</li>
+                        <li>Fake amenity 3</li>
+                    </ul>
+                </div>
+                <button aria-label="Search">Search</button>
+            </section>
+        </div>
+    </nav>
+
+    <main role="main">
+        <div class="container">
+            <section class="places">
+                <h1>Places</h1>
+                <article>
+                    <h2>Place 1</h2>
+                    <div class="price_by_night">$100</div>
+                    <div class="information">
+                        <div class="max_guest">Guests: 4</div>
+                        <div class="number_rooms">Bedrooms: 2</div>
+                        <div class="number_bathrooms">Bathrooms: 1</div>
+                    </div>
+                    <div class="user"><strong>Owner:</strong> Fake Owner</div>
+                    <div class="description">Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                    <div class="amenities">
+                        <h2>Amenities</h2>
+                        <ul>
+                            <li>Pet friendly</li>
+                            <li>TV</li>
+                            <li>Wifi</li>
+                        </ul>
+                    </div>
+                    <div class="reviews">
+                        <h2>Reviews</h2>
+                        <ul>
+                            <li>
+                                <h3>From Bob Dylan the 27th January 2017</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+		</section>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <h2>Best School center</h2>
+    </footer>
+    <script>
+	    var logos = document.querySelectorAll('.logo');
+        logos.forEach(function(logo) {
+            logo.style.backgroundImage = 'url("images/logo.png")';
+        });
+    </script>
+</body>
+
+</html>
+
